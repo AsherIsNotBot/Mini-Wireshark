@@ -6,7 +6,7 @@
 #include <QVector>
 #include <atomic>
 #include <pcap.h>
-#include "Protocol.h" // 引入我们刚才写的模具和 PacketData
+#include "Protocol.h" // 引入协议的struct
 
 // 注册 QVector<PacketData> 类型，让 Qt 的信号槽支持传递整个数组
 Q_DECLARE_METATYPE(QVector<PacketData>)

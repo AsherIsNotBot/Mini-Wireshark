@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_NetAnalyzer_FILE /home/huicehn/work/myqtcode/NetAnalyzer/build/Desktop_Qt_6_9_2-Debug/NetAnalyzer)
-set(__QT_DEPLOY_TARGET_NetAnalyzer_TYPE EXECUTABLE)
