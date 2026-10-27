@@ -60,6 +60,7 @@ void MainWindow::onStartClicked()
     m_btnStart->setEnabled(false);
     m_btnStop->setEnabled(true);
     m_editFilter->setEnabled(false);
+    m_btnClear->setEnabled(false);
 
     QString filterStr = m_editFilter->text();
 
@@ -73,6 +74,7 @@ void MainWindow::onStopClicked()
     m_btnStart->setEnabled(true);
     m_btnStop->setEnabled(false);
     m_editFilter->setEnabled(true);
+    m_btnClear->setEnabled(true);
     m_sniffer->stopSniffing();
 }
 

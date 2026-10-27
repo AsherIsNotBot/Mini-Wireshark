@@ -66,6 +66,10 @@ void Sniffer::run() {
     // 2. 开启死循环抓包
     // 这里的神仙操作：把 this 指针（当前 Sniffer 对象）作为 userData 传给静态回调函数
     pcap_loop(m_handle, -1, packetHandler, reinterpret_cast<u_char*>(this));
+    if(!m_buffer.isEmpty()){
+        emit packetsParsed(m_buffer);
+        m_buffer.clear();
+    }
 
     pcap_close(m_handle);
     m_handle = nullptr;
@@ -127,7 +131,6 @@ void Sniffer::parsePacket(const struct pcap_pkthdr *pkthdr, const u_char *packet
         data.protocol = "Non-IPv4";
     }
 
-    // ==== 【简历高光时刻：队列缓冲防卡顿】 ====
     m_buffer.append(data);
 
     // 当积攒了 50 个包，就把这 50 个包打包作为一次信号发送给 UI 线程
